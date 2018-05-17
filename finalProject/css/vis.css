@@ -1,0 +1,122 @@
+/* Large desktop */
+@media (min-width: 1200px) { 
+  line#mu1, line#mu2 {
+  stroke-width: 2px;
+}
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+  line#mu1, line#mu2 {
+  stroke-width: 2px;
+}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    line#mu1, line#mu2 {
+  stroke-width: 1px;
+}
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+line#mu1, line#mu2 {
+  stroke-width: 1px;
+}
+} 
+
+
+#viz {
+  background-color: #FFF;
+  border-radius: 10px;
+  padding-top:10px;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+  stroke-width: 1px;
+
+}
+path#dist1 {
+	fill: #30394F;
+	stroke: #30394F;
+	stroke-width: 0px;
+}
+path#dist2{
+	fill: #6ACEEB;
+	stroke: #6ACEEB;
+	stroke-width: 0px;
+
+}
+line#mu1 {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 2,2;
+}
+line#mu2 {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 2,2;
+}
+line#mu_connect {
+    fill: none;
+    stroke: black;
+    stroke-width: 2px;
+}
+.poly {
+	stroke: #0E6569;
+	fill: #0E6569;
+}
+
+li.list-group-item {
+  border: 0;
+}
+@media (max-width: 992px) { 
+.donuts {
+  font-size: 12px;
+}
+svg .perc {
+  font-size: 14px;
+  font-family: "museo_slab500";
+  fill: #3498db;
+}
+}
+@media (min-width: 993px) { 
+svg .perc {
+  font-family: "museo_slab500";
+  fill: #3498db;
+  font-size: 25px;
+}
+}
+.donuts svg {
+  display: block;
+  margin: 0 auto;
+}
+
+p.donuts {
+ text-align: center; 
+ font-weight: bold;
+}
+
+
+.interpret {
+	background-color: #16A085;
+	color: white;
+	border-radius: 6px;
+	padding: 14px;
+}
+div#accordion {
+	color:black;
+}
+.cohen_float {
+   font-family: "museo_slab500";
+   font-size:20px;
+}
