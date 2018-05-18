@@ -9,6 +9,22 @@
       font-style: normal;
 }
 
+.title {
+  color: #30394F;
+  font-weight: bold;
+  font-family: helvetica;
+}
+
+.explain {
+  color: #30394F;
+  font-family: helvetica;
+}
+
+ul {
+  color: #30394F;
+  font-family: helvetica;
+}
+
 a {
   color: #3C3658;
   font-weight: bold;
@@ -23,6 +39,11 @@ a:hover {
 }
 a.glyphicon:hover {
   text-decoration: none;
+}
+
+a {
+  color: #3C3658;
+  font-weight: bold;
 }
 
 html,
