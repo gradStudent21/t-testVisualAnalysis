@@ -298,7 +298,7 @@ var cohend_float = g.append("text")
 					.attr("text-anchor", "middle")
 					.attr("x", xScale((para.mu1+para.mu2)/2))
 					.attr("y", (-20))
-					.text("Cohen's " + "d: "+para.cohend);
+					.text("Effect size: "+para.cohend);
 
 
 
@@ -350,7 +350,7 @@ var u3 = {w: parseInt(d3.select('div#u3').style('width'), 10)*donut_resize};
     d3.select('div#u3')
     	.append("p")
     	.attr("class", "donuts")
-    	.html("Cohen's U<sub>3</sub>")
+    	.html("Effect's U<sub>3</sub>")
 // perc
 var perc = {w: parseInt(d3.select('div#perc').style('width'), 10)*donut_resize};
 	perc.h = perc.w;
@@ -647,7 +647,7 @@ function sliderChange(value) {
 		.tween("text", function() {
 		  var i = d3.interpolate(old_d, para.cohend);
 		  return function(t) {
-		    this.textContent = "Cohen's d: " + d3.round(i(t), 2);
+		    this.textContent = "Effect size: " + d3.round(i(t), 2);
 		  }});
 
 	    // update ES

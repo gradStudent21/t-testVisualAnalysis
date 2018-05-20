@@ -3,10 +3,12 @@
   <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
 		<link href="css/vis.css" rel="stylesheet">
   </head>
   <body>
+<<<<<<< HEAD
   		<div class="explanation">
   			<h2 class="title"><center>A/B Testing in Marketing: Explaining the T-Test</center></h2>
   			<p class="explain">
@@ -34,13 +36,16 @@
   			</p>
   		</div>
 		<div class="row">
+=======
+  	<div class="row">
+>>>>>>> changed graph color, fixed some failures, added a popup for users to adjust size, and changed label to effect
 		<div class="col-md-12">
 	  	<div class="div_settings">
- 	     	<h4>Slide me <a class="glyphicon glyphicon-cog" data-toggle="popover" title="Settings" id="slider-settings" href="javascript:void(0);"><span ></span></a></h4>
+ 	     	<h4>Slide me <a class="glyphicon glyphicon-pencil" data-toggle="popover" title="Settings" id="slider-settings" href="javascript:void(0);"><span></span></a></h4>
 			</div>
 			<form id="popover-content" class="hide" role='form'>
 				<div class='form-group'>
-					<label for='inputCohend'>Max Cohen's <em>d</em></label>
+					<label for='inputCohend'>Max effect size </label>
 						<input type='number' class='form-control inputCohend' id='inputCohend' min="0" max="5" placeholder='maxCohend'>
 				</div>
 				<div class='form-group'>
@@ -59,13 +64,13 @@
 		</div>
 		</div>
 
-   <!-- Load JS here for greater good =============================-->
-    <script src="//code.jquery.com/jquery-1.8.3.js"></script>
-		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-    <script src="js/jquery.ui.touch-punch.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-	  <script src="js/jstat.js"></script>
-		<script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="js/vis.js"></script>
+   <!-- scripts =============================-->
+   <script src="//code.jquery.com/jquery-1.8.3.js"></script>
+ <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+ <script src="js/jquery.ui.touch-punch.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/jstat.js"></script>
+ <script src="http://d3js.org/d3.v3.min.js"></script>
+ <script src="js/vis.js"></script>
  </body>
 </html>

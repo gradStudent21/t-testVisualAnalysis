@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
       font-family: 'museo_slab500';
       src: url('fonts/Museo_Slab_500_2-webfont.eot');
       src: url('fonts/Museo_Slab_500_2-webfont.eot?#iefix') format('embedded-opentype'),
@@ -7,7 +7,7 @@
       url('fonts/Museo_Slab_500_2-webfont.svg#museo_slab500') format('svg');
       font-weight: normal;
       font-style: normal;
-}
+} */
 
 .title {
   color: #30394F;
@@ -41,19 +41,23 @@ a.glyphicon:hover {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 a {
   color: #3C3658;
   font-weight: bold;
 }
 
 html,
+=======
+/* html,
+>>>>>>> changed graph color, fixed some failures, added a popup for users to adjust size, and changed label to effect
 body {
-  height: 100%;
-  background-color: #FFF; 
-}
+  height: 50%;
+  background-color: #FFF;
+} */
 /* Wrapper for page content to push down footer */
 #wrap {
-  min-height: 100%;
+  min-height: 50%;
   height: auto;
   /* Negative indent footer by its height */
   margin: 0 auto -60px;
@@ -81,12 +85,12 @@ body {
   padding-right: 15px;
 }
 
-.page-header .title {
+/* .page-header .title {
   font-family: "museo_slab500";
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: "museo_slab500";
-}
+} */
 
 @media only screen and (min-width: 768px) {
   .page-header .title {
@@ -103,9 +107,9 @@ code {
 p.footnotes {
   font-size: 90%;
 }
-p.lead {
+/* p.lead {
    font-family: "museo_slab500";
-}
+} */
 .popover {
   font-family: helvetica;
 }

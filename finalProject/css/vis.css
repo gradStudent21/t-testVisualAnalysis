@@ -1,36 +1,35 @@
 /* Large desktop */
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   line#mu1, line#mu2 {
   stroke-width: 2px;
 }
 }
 
 /* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) { 
+@media (min-width: 768px) and (max-width: 979px) {
   line#mu1, line#mu2 {
   stroke-width: 2px;
 }
 }
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
     line#mu1, line#mu2 {
   stroke-width: 1px;
 }
 }
 
 /* Landscape phones and down */
-@media (max-width: 480px) { 
+@media (max-width: 480px) {
 line#mu1, line#mu2 {
   stroke-width: 1px;
 }
-} 
-
+}
 
 #viz {
   background-color: #FFF;
-  border-radius: 10px;
-  padding-top:10px;
+  border-radius: 2px;
+  padding-top:2px;
 }
 
 .axis {
@@ -46,13 +45,13 @@ line#mu1, line#mu2 {
 
 }
 path#dist1 {
-	fill: #30394F;
-	stroke: #30394F;
+	fill: #7b6888;
+	stroke: #7b6888;
 	stroke-width: 0px;
 }
 path#dist2{
-	fill: #6ACEEB;
-	stroke: #6ACEEB;
+	fill: #ff8c00;
+	stroke: #ff8c00;
 	stroke-width: 0px;
 
 }
@@ -79,19 +78,19 @@ line#mu_connect {
 li.list-group-item {
   border: 0;
 }
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
 .donuts {
   font-size: 12px;
 }
 svg .perc {
   font-size: 14px;
-  font-family: "museo_slab500";
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   fill: #3498db;
 }
 }
-@media (min-width: 993px) { 
+@media (min-width: 993px) {
 svg .perc {
-  font-family: "museo_slab500";
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   fill: #3498db;
   font-size: 25px;
 }
@@ -102,10 +101,9 @@ svg .perc {
 }
 
 p.donuts {
- text-align: center; 
+ text-align: center;
  font-weight: bold;
 }
-
 
 .interpret {
 	background-color: #16A085;
@@ -116,7 +114,7 @@ p.donuts {
 div#accordion {
 	color:black;
 }
-.cohen_float {
-   font-family: "museo_slab500";
+.sample_size {
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size:20px;
 }
