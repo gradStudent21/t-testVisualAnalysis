@@ -6,50 +6,69 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
 		<link href="css/vis.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .graph-container {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
   </head>
   <body>
 
-    <div class="row">
- 		<div class="col-md-12">
- 	  	<div class="row">
- 				<div class="col-md-12" id="test"></div>
- 			</div>
-       <div id="n_container">
-       <h4 id="n">Sample size</h4>
-       <div id="slider_n" class="ui-slider"></div>
-     </div>
- 				<div id="viz2"></div>
- 		</div>
- 		</div>
-    <div class="row">
-    <div class="col-md-12">
-      <div class="div_settings">
-        <h4>Slide me <a class="glyphicon glyphicon-pencil" data-toggle="popover" title="Settings" id="slider-settings" href="javascript:void(0);"><span></span></a>
-        </h4>
-      </div>
-      <form id="popover-content" class="hide" role='form'>
-        <div class='form-group'>
-          <label for='inputCohend'>Max effect size </label>
-            <input type='number' class='form-control inputCohend' id='inputCohend' min="0" max="5" placeholder='maxCohend'>
-        </div>
-        <div class='form-group'>
-          <label for='inputStep'>Slider step size </label>
-            <input type='number' class='form-control inputStep' id='inputStep' min="0" max="1" step="0.1" placeholder='inputStep'>
-        </div>
-        <div class='form-group'>
-          <label for='inputCER'>CER (%)</label>
-            <input type='number' class='form-control inputCER' id='inputCER' placeholder='CER' min='0' max='100'></div>
-      </form>
-      <div class="row">
-        <div class="col-md-12" id="test"></div>
-      </div>
-        <div id="slider" class="ui-slider"></div>
-        <div id="viz"></div>
-    </div>
+    <div class="clearfix">
+         <div class="graph-container">
+            <div class="row">
+             <div class="col-md-12">
+               <div class="row">
+                 <div class="col-md-12" id="test"></div>
+               </div>
+               <div id="n_container">
+               <h4 id="n">Sample size</h4>
+               <div id="slider_n" class="ui-slider"></div>
+             </div>
+                 <div id="viz2" style="width:100%"></div>
+             </div>
+             </div>
+         </div>
+         <div class="graph-container">
+           <div class="row">
+           <div class="col-md-12">
+             <div class="div_settings">
+               <h4>Slide me <a class="glyphicon glyphicon-pencil" data-toggle="popover" title="Settings" id="slider-settings" href="javascript:void(0);"><span></span></a>
+               </h4>
+             </div>
+             <form id="popover-content" class="hide" role='form'>
+               <div class='form-group'>
+                 <label for='inputCohend'>Max Difference In Means </label>
+                   <input type='number' class='form-control inputCohend' id='inputCohend' min="0" max="5" placeholder='maxCohend'>
+               </div>
+               <div class='form-group'>
+                 <label for='inputStep'>Slider step size </label>
+                   <input type='number' class='form-control inputStep' id='inputStep' min="0" max="1" step="0.1" placeholder='inputStep'>
+               </div>
+             </form>
+             <div class="row">
+               <div class="col-md-12" id="test"></div>
+             </div>
+               <div id="slider" class="ui-slider"></div>
+               <div id="viz" style="width:100%"></div>
+           </div>
+           </div>
+         </div>
     </div>
 
-
-   <!-- Load JS here for greater good =============================-->
+   <!-- Load JS files =============================-->
     <script src="//code.jquery.com/jquery-1.8.3.js"></script>
 		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>

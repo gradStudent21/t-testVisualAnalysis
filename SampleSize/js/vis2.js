@@ -1,6 +1,9 @@
 
 
 drawSampleSize();
+var difference = drawDifferenceInMeans();
+drawEffectSize(difference);
+
 function drawSampleSize(){
 
 		function calcGaussOverlap(d) {
@@ -34,7 +37,6 @@ function drawSampleSize(){
 		para.perc = calcGaussOverlap(para.n);
 		para.CL = calcCL(para.n);
 		para.NNT = calcNNT(para.n);
-
 
 			var $slider_n = $("#slider_n");
 			if ($slider_n.length > 0) {
@@ -85,9 +87,7 @@ function drawSampleSize(){
 		    $slider_n.slider("option", "max", value);
 		    $(".inputSampleSize").attr("value", value);
 
-
 		});
-
 
 		//Click anywhere to remove popover
 		 $(':not(#anything)').on('click', function (e) {
@@ -116,14 +116,11 @@ function drawSampleSize(){
 			w = w - margin.left - margin.right;
 		var	h = aspect*w-margin.top - margin.left;
 
-
-
 		// x.values
 				var x = [];
 				for (var i = para.mu1-3*para.sigma1; i <= 5+3*para.sigma2; i += 0.01) {
 					x.push(i);
 				}
-
 
 		// Generates data
 		function genData(mu, sigma) {
@@ -213,8 +210,6 @@ function drawSampleSize(){
 			.attr("class", "x axis")
 			.attr("transform", "translate(0," + (h) + ")")
 			.call(xAxis);
-
-
 
 		// Append dists
 		var dist1 = dists.append("svg:path")
@@ -308,7 +303,7 @@ function drawSampleSize(){
 				.text(d3.round((para.CER), 1));
 
 		}
-		changeInterpretText();
+    changeInterpretText();
 
 		// change
 		function reDrawPoly() {
@@ -454,7 +449,6 @@ function drawSampleSize(){
 				changeInterpretText();
 			};
 
-
 		// resize
 		$(window).on("resize", resize);
 
@@ -512,8 +506,8 @@ function drawSampleSize(){
 							.attr("y", (-20));
 
 		}
+
 }
-drawDifferenceInMeans();
 function drawDifferenceInMeans(){
 
 		function calcGaussOverlap(d) {
@@ -568,9 +562,7 @@ function drawDifferenceInMeans(){
 			}
 
 		$slider.find(".ui-slider-handle").append("<div class='slide-tooltip'/>");
-
 		var tooltip = $(".slide-tooltip").tooltip( {title: $("#slider").slider("value"), trigger: "manual"});
-
 
 		// SETTINGS popover
 		 $('#slider-settings').popover({
@@ -612,8 +604,6 @@ function drawDifferenceInMeans(){
 			 $(".inputStep").attr("value", para.step);
 		});
 
-
-
 		//Click anywhere to remove popover
 		 $(':not(#anything)').on('click', function (e) {
 		    $('[data-toggle="popover"]').each(function () {
@@ -628,7 +618,6 @@ function drawDifferenceInMeans(){
 		// $(':not(#anything)').on('click', function (e) {
 		// 	$(".popover").toggleClass("in").remove();
 		// });
-
 
 		$(".inputCER").attr("value", para.CER);
 		$(".inputCohend").attr("value", $slider.slider("option", "max"));
@@ -648,14 +637,11 @@ function drawDifferenceInMeans(){
 			w = w - margin.left - margin.right;
 		var	h = aspect*w-margin.top - margin.left;
 
-
-
-		// x.values
+  		// x.values
 				var x = [];
 				for (var i = para.mu1-3*para.sigma1; i <= 5+3*para.sigma2; i += 0.01) {
 					x.push(i);
 				}
-
 
 		// Generates data
 		function genData(mu, sigma) {
@@ -718,7 +704,6 @@ function drawDifferenceInMeans(){
 					.attr("width", w + margin.left + margin.right)
 					.attr("id", "SVG-container");
 
-
 		var dists = svg.append("g")
 						.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 						.attr("clip-path", "url(#clip)");
@@ -745,8 +730,6 @@ function drawDifferenceInMeans(){
 			.attr("class", "x axis")
 			.attr("transform", "translate(0," + (h) + ")")
 			.call(xAxis);
-
-
 
 		// Append dists
 		var dist1 = dists.append("svg:path")
@@ -814,10 +797,10 @@ function drawDifferenceInMeans(){
 							.attr("text-anchor", "middle")
 							.attr("x", xScale((para.mu1+para.mu2)/2))
 							.attr("y", (-20))
-							.text("Effect size: "+para.cohend);
+							.text("Difference In Means: "+para.cohend);
 
 		// copy text
-		function changeInterpretText() {
+  	function changeInterpretText() {
 			d3.select("span#cohend")
 			.text(d3.round(para.cohend,2));
 			d3.select("span#u3")
@@ -838,9 +821,9 @@ function drawDifferenceInMeans(){
 				.text(d3.round((1/para.NNT)*100, 1));
 			d3.select("span#paraCER")
 				.text(d3.round((para.CER), 1));
-
+				return para.cohend;
 		}
-		changeInterpretText();
+   	changeInterpretText();
 
 		// change
 		function reDrawPoly() {
@@ -849,7 +832,6 @@ function drawDifferenceInMeans(){
 
 				var tmp_y = Math.min(data1.y[i], data2.y[i]),
 					tmp_x = data1.x[i];
-
 				var tmp =  [tmp_x,tmp_y];
 
 				poly.push(tmp);
@@ -860,6 +842,8 @@ function drawDifferenceInMeans(){
 				.transition()
 				.duration(600)
 				.attr("d", line(poly));
+
+	   drawEffectSize(para.cohend);
 		}
 
 		function updateScales() {
@@ -932,12 +916,12 @@ function drawDifferenceInMeans(){
 				.tween("text", function() {
 				  var i = d3.interpolate(old_d, para.cohend);
 				  return function(t) {
-				    this.textContent = "Effect size: " + d3.round(i(t), 2);
+				    this.textContent = "Difference In Means: " + d3.round(i(t), 2);
 				  }});
 
 				// update copy text
-				changeInterpretText();
-			};
+		    changeInterpretText();
+				};
 
 		// resize
 		$(window).on("resize", resize);
@@ -991,10 +975,11 @@ function drawDifferenceInMeans(){
 							.attr("y1", -7)
 							.attr("y2", -7);
 
-
 		cohend_float.attr("x", xScale((para.mu1+para.mu2)/2))
 							.attr("y", (-20));
-
 		}
-
+	  drawEffectSize(para.cohend);
+}
+function drawEffectSize(value){
+   	console.log(value);
 }
