@@ -2,7 +2,7 @@
 
 drawSampleSize();
 var difference = drawDifferenceInMeans();
-//drawEffectSize(difference);
+
 
 function drawSampleSize(){
 
@@ -843,6 +843,7 @@ function drawDifferenceInMeans(){
 				.duration(600)
 				.attr("d", line(poly));
 
+     clearEffectSizeChart();
 	   drawEffectSize(para.cohend);
 		}
 
@@ -1059,15 +1060,12 @@ function drawEffectSize(value){
 		    data.push(el)
 		};
 
-		// need to sort for plotting
-		//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 		data.sort(function(x, y) {
 		    return x.q - y.q;
 		});
 		}
 
-		// from http://bl.ocks.org/mbostock/4349187
-		// Sample from a normal distribution with mean 0, stddev 1.
+
 		function normal() {
 		    var x = 0,
 		        y = 0,
@@ -1081,8 +1079,6 @@ function drawEffectSize(value){
 		    return x * c; // throw away extra sample y * c
 		}
 
-		//taken from Jason Davies science library
-		// https://github.com/jasondavies/science.js/
 		function gaussian(x) {
 			var gaussianConstant = 1 / Math.sqrt(2 * Math.PI),
 				mean = 0,
@@ -1093,3 +1089,7 @@ function drawEffectSize(value){
 		};
 
 }
+//remove chart
+function clearEffectSizeChart(){
+	d3.selectAll("#viz3> *").remove();
+};

@@ -120,3 +120,43 @@ div#accordion {
    font-family: "museo_slab500";
    font-size:20px;
 }
+
+
+.graph-container {
+    float: right;
+    width: 41%;
+    padding: 1px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.img-responsive {
+display: inline-block;
+height: inherit;
+width: 45%
+}
+
+.page_full_heading {
+width: 100%;
+height: auto;
+float: left;
+margin: 0px;
+color: #000000;
+font: 30px/46px 'Fira Sans';
+font-weight: bold;
+}
+body {
+margin:50px 0;
+padding:0;
+text-align:center;
+}
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+}

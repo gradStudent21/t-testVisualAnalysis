@@ -7,36 +7,32 @@
 		<link href="css/styles.css" rel="stylesheet">
 		<link href="css/vis.css" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-        }
+    .graph-container {
+        float: right;
+        width: 41%;
+        padding: 1px;
+    }
 
-      .graph-container {
-            float: right;
-            width: 41%;
-            padding: 1px;
-        }
-
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
 
     .img-responsive {
-        display: inline-block;
-        height: inherit;
-        width: 45%
+    display: inline-block;
+    height: inherit;
+    width: 45%
     }
 
     .page_full_heading {
-        width: 100%;
-        height: auto;
-        float: left;
-        margin: 0px;
-        color: #000000;
-        font: 30px/46px 'Fira Sans';
-        font-weight: bold;
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 0px;
+    color: #000000;
+    font: 30px/46px 'Fira Sans';
+    font-weight: bold;
     }
     body {
     margin:50px 0;
@@ -48,26 +44,13 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-   }
-  </style>
+    }
+    </style>
   </head>
   <body>
     <div class="hero-image"><img class="img-responsive" src="icons/ab-testing-1.jpg" alt="Image"></div>
     <h1 class="page_full_heading">What is A/B testing (split testing)?</h1>
-    <!-- <p class="img-responsive">
-      If visitors are not converting on your website, then obviously, there is a problem that is stopping them. </h>
-
-      You can go ahead and ask your design team to create new designs, but the question remains: how do you know that the new designs will convert more visitors compared to the original design? </h>
-
-      That is where AB testing comes in handy. </h>
-
-      <B>A/B testing</B> (sometimes referred to as split testing) is the process of testing multiple new designs of a webpage against the original design of that page with the goal of </h>
-      determining which design generates more conversions. </h>
-
-      The original design of a page is usually referred to as the control. The new designs of the page are usually referred to as the “variations”, “challengers” or “recipes.” </h>
-
-      The process of testing which page design generates more conversions is typically referred to as a “test” or an “experiment.” </h>
-    </p> -->
+    <!-- add content -->
     <div class="clearfix">
          <div class="graph-container">
             <div class="row">
@@ -108,19 +91,11 @@
            </div>
            </div>
          </div>
+          <p class="center"><b>Effect size</b></p>
           <div id="viz3" class="center"></div>
     </div>
-      <!-- <p>
-        <b> 1st Example:</b> kjdfkajflkdaj;fdkajlfkdjalkfja;lkfdjakjf;alkjf;lkajf;dlkjafdjjfdkl Simulating no effect
-      </p>
-      <p>
-        <b>2nd Example:</b> wjekjakrej;kljre;lkejr;klejr;lkjrkje;lkrje;rekljekljrkejrkejkjer;kejrer Simulating with effect
-      </p>
-      <p>
-      <b>3rd Example:</b> wkjerk;jrjek;ljr;klejkejrkerj;klejr;elrjkrjkljrkljwkjwkjrekwrjewrkjrekr;jerekjr;j Simulating
-      </p> -->
 
-
+   <!-- add content  -->
    <!-- Load JS files =============================-->
     <script src="//code.jquery.com/jquery-1.8.3.js"></script>
 		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
