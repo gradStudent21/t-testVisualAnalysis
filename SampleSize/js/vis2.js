@@ -1,9 +1,5 @@
 
 
-drawSampleSize();
-var difference = drawDifferenceInMeans();
-
-
 function drawSampleSize(){
 
 		function calcGaussOverlap(d) {
@@ -797,7 +793,7 @@ function drawDifferenceInMeans(){
 							.attr("text-anchor", "middle")
 							.attr("x", xScale((para.mu1+para.mu2)/2))
 							.attr("y", (-20))
-							.text("Difference In Means: "+para.cohend);
+							.text("Difference In Means: " + para.cohend);
 
 		// copy text
   	function changeInterpretText() {
@@ -979,11 +975,12 @@ function drawDifferenceInMeans(){
 		cohend_float.attr("x", xScale((para.mu1+para.mu2)/2))
 							.attr("y", (-20));
 		}
-	  drawEffectSize(para.cohend);
+	  console.log(para.cohend);
+	  return(para.cohend);
 }
-function drawEffectSize(value){
+function drawEffectSize(difference){
 
-			var data = [];
+		var data = [];
 
 		getData(); // popuate data
 
@@ -1060,9 +1057,9 @@ function drawEffectSize(value){
 		    data.push(el)
 		};
 
-		data.sort(function(x, y) {
-		    return x.q - y.q;
-		});
+			data.sort(function(x, y) {
+			    return x.q - y.q;
+			});
 		}
 
 
@@ -1081,7 +1078,7 @@ function drawEffectSize(value){
 
 		function gaussian(x) {
 			var gaussianConstant = 1 / Math.sqrt(2 * Math.PI),
-				mean = 0,
+				mean = difference,
 		    	sigma = 1;
 
 		    x = (x - mean) / sigma;
@@ -1089,7 +1086,12 @@ function drawEffectSize(value){
 		};
 
 }
+
 //remove chart
 function clearEffectSizeChart(){
 	d3.selectAll("#viz3> *").remove();
 };
+
+var sampleSize = drawSampleSize();
+var difference = drawDifferenceInMeans();
+drawEffectSize(difference);
