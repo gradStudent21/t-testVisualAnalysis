@@ -262,7 +262,7 @@ function drawSampleSize(){
 
 
 		var sample_size = g.append("text")
-							.attr("class", "sample_size")
+							.attr("class", "cohen_float")
 							.attr("text-anchor", "middle")
 							.attr("x", xScale((para.mu1+para.mu2)/2))
 							.attr("y", (-20))
@@ -548,7 +548,7 @@ function drawDifferenceInMeans(){
 			slide: function(event, ui) {
 				$slider.slider("option", "step", parseFloat(para.step));
 				$(".tooltip-inner").text(ui.value);},
-			start: function(event, ui) {tooltip.tooltip("show"); $(".tooltip-inner").text(ui.value)},
+			// start: function(event, ui) {tooltip.tooltip("show"); $(".tooltip-inner").text(ui.value)},
 			stop: function() {tooltip.tooltip("hide")}
 			 });
 			}
