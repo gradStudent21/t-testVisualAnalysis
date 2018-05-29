@@ -34,22 +34,22 @@ function drawSampleSize(){
 		para.CL = calcCL(para.n);
 		para.NNT = calcNNT(para.n);
 
-			var $slider_n = $("#slider_n");
-			if ($slider_n.length > 0) {
-			  $slider_n.slider({
-			    min: 1,
-			    max: 200,
-			    value: para.n,
-			    orientation: "horizontal",
-			    range: "min",
-				animate: "fast",
-				step: 1,
-				change: function(event, ui) {sliderChange(ui.value);},
-				slide: function(event, ui) {$(".tooltip-inner").text(ui.value)},
-				start: function(event, ui) {tooltip4.tooltip("show"); $(".tooltip-inner").text(ui.value)},
-				stop: function(event, ui) {tooltip4.tooltip("hide");}
-				 });
-				};
+		var $slider_n = $("#slider_n");
+		if ($slider_n.length > 0) {
+		  $slider_n.slider({
+		    min: 12,
+		    max: 40,
+		    value: para.n,
+		    orientation: "horizontal",
+		    range: "min",
+			animate: "fast",
+			step: 1,
+			change: function(event, ui) {sliderChange(ui.value);},
+			slide: function(event, ui) {$(".tooltip-inner").text(ui.value)},
+			start: function(event, ui) {tooltip4.tooltip("show"); $(".tooltip-inner").text(ui.value)},
+			stop: function(event, ui) {tooltip4.tooltip("hide");}
+			 });
+			};
 
 		$slider_n.find(".ui-slider-handle").append("<div id='tooltip_n' class='slide-tooltip'/>");
 		 var tooltip4 = $("#tooltip_n").tooltip( {title: $("#slider_n").slider("value"), trigger: "manual"});
@@ -160,7 +160,7 @@ function drawSampleSize(){
 
 		// Create scales
 		var xScale = d3.scale.linear().domain([x_min, x_max]).range([0,w]);
-		var yScale = d3.scale.linear().domain([0, y_max]).range([0,h]);
+		var yScale = d3.scale.linear().domain([0, y_max]).range([-2,h]);
 
 		// Line function
 		var line = d3.svg.line()
@@ -196,11 +196,8 @@ function drawSampleSize(){
 		        .attr("width", w)
 		        .attr("height", h);
 
-		//Define X axis
-		var xAxis = d3.svg.axis()
-						  .scale(xScale)
-						  .orient("bottom")
-						   .tickSize(5);
+		//Define X axis -- this defines the axis
+		var xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickSize(5);
 
 		var xAx = g.append("g")
 			.attr("class", "x axis")
@@ -258,9 +255,6 @@ function drawSampleSize(){
 		    .attr("d", "M0,-5L10,0L0,5");
 
 		var mu_connect = g.append("line")
-							.attr("id", "mu_connect")
-							.attr("marker-start", "url(#marker-start)")
-							.attr("marker-end", "url(#marker-end)")
 							.attr("x1", xScale(para.mu1))
 							.attr("x2", xScale(para.mu2))
 							.attr("y1", -7)
@@ -502,6 +496,7 @@ function drawSampleSize(){
 							.attr("y", (-20));
 
 		}
+		//return()
 
 }
 function drawDifferenceInMeans(){
@@ -531,6 +526,7 @@ function drawDifferenceInMeans(){
 			n2: 10,
 			CER: 20,
 			step: 0.1};
+
 		para.sigma2 = para.sigma1*para.var_ratio;
 		para.mu2 = para.mu1 + para.cohend*para.sigma1;
 		para.u3 = jStat.normal.cdf(para.cohend, 0, 1);
@@ -542,7 +538,7 @@ function drawDifferenceInMeans(){
 		if ($slider.length > 0) {
 		  $slider.slider({
 		    min: 0,
-		    max: 3,
+		    max: 1.5,
 		    value: para.cohend,
 		    orientation: "horizontal",
 		    range: "min",
@@ -975,10 +971,9 @@ function drawDifferenceInMeans(){
 		cohend_float.attr("x", xScale((para.mu1+para.mu2)/2))
 							.attr("y", (-20));
 		}
-	  console.log(para.cohend);
 	  return(para.cohend);
 }
-function drawEffectSize(difference){
+function drawEffectSize(difference, sampleSize){
 
 		var data = [];
 
@@ -992,7 +987,7 @@ function drawEffectSize(difference){
 		        left: 50
 		    },
 		    width = 860 - margin.left - margin.right,
-		    height = 400 - margin.top - margin.bottom;
+		    height = 250 - margin.top - margin.bottom;
 
 		var x = d3.scale.linear()
 		    .range([0, width]);
@@ -1034,28 +1029,31 @@ function drawEffectSize(difference){
 		    .attr("transform", "translate(0," + height + ")")
 		    .call(xAxis);
 
-		// svg.append("g")
-		//     .attr("class", "y axis")
-		//     .call(yAxis);
-
 		svg.append("path")
 		    .datum(data)
 		    .attr("class", "line")
 		    .attr("d", line);
 
+		//causing problems with the chart lines
+		// svg.append("line")
+		// 			.attr("id", "difference")
+		// 			.attr("x axis", xScale(difference))
+		// 			.attr("y1", yScale(0))
+		// 			.attr("y2", yScale(y_max));
+
 		function getData() {
 
 		// loop to populate data array with
 		// probabily - quantile pairs
-		for (var i = 0; i < 100000; i++) {
-		    q = normal() // calc random draw from normal dist
-		    p = gaussian(q) // calc prob of rand draw
-		    el = {
-		        "q": q,
-		        "p": p
-		    }
-		    data.push(el)
-		};
+			for (var i = 0; i < 100000; i++) {
+			    q = normal() // calc random draw from normal dist
+			    p = gaussian(q) // calc prob of rand draw
+			    el = {
+			        "q": q,
+			        "p": p
+			    }
+			    data.push(el)
+			};
 
 			data.sort(function(x, y) {
 			    return x.q - y.q;
@@ -1094,4 +1092,4 @@ function clearEffectSizeChart(){
 
 var sampleSize = drawSampleSize();
 var difference = drawDifferenceInMeans();
-drawEffectSize(difference);
+drawEffectSize(difference, sampleSize);
