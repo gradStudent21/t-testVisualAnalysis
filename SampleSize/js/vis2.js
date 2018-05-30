@@ -225,12 +225,12 @@ function drawSampleSize(){
 							.attr("y1", yScale(0))
 							.attr("y2", yScale(y_max));
 
-		var mu2_line = g.append("line")
-							.attr("id", "mu2")
-							.attr("x1", xScale(para.mu2))
-							.attr("x2", xScale(para.mu2))
-							.attr("y1", yScale(0))
-							.attr("y2", yScale(y_max));
+		// var mu2_line = g.append("line")
+		// 					.attr("id", "mu2")
+		// 					.attr("x1", xScale(para.mu2))
+		// 					.attr("x2", xScale(para.mu2))
+		// 					.attr("y1", yScale(0))
+		// 					.attr("y2", yScale(y_max));
 		// marker
 		svg.append("svg:defs").append("marker")
 		    .attr("id", "marker-start")
@@ -475,7 +475,7 @@ function drawSampleSize(){
 		clip.attr("width", w)
 		        .attr("height", h);
 
-		// mu lines
+		// mu lines -- this doesn't do anything
 		mu1_line.attr("x1", xScale(para.mu1))
 							.attr("x2", xScale(para.mu1))
 							.attr("y1", yScale(0))
@@ -914,7 +914,7 @@ function drawDifferenceInMeans(){
 
 				// update copy text
 		    changeInterpretText();
-				};
+		};
 
 		// resize
 		$(window).on("resize", resize);
@@ -977,7 +977,7 @@ function drawEffectSize(difference, sampleSize){
 
 		var data = [];
 
-		getData(); // popuate data
+		getData(); // populate data
 
 		// line chart based on http://bl.ocks.org/mbostock/3883245
 		var margin = {
@@ -1034,13 +1034,6 @@ function drawEffectSize(difference, sampleSize){
 		    .attr("class", "line")
 		    .attr("d", line);
 
-		//causing problems with the chart lines
-		// svg.append("line")
-		// 			.attr("id", "difference")
-		// 			.attr("x axis", xScale(difference))
-		// 			.attr("y1", yScale(0))
-		// 			.attr("y2", yScale(y_max));
-
 		function getData() {
 
 		// loop to populate data array with
@@ -1081,15 +1074,34 @@ function drawEffectSize(difference, sampleSize){
 
 		    x = (x - mean) / sigma;
 		    return gaussianConstant * Math.exp(-.5 * x * x) / sigma;
+
 		};
 
+		// ANY OF THE BELOW FUCKS UP THE SLIDER
+		// y_max = d3.max(data.y);
+
+		// // // causes problems with the lines
+		// var diff_line = svg.append("line")
+		// 					.attr("id", "effect_size")
+		// 					.attr("x1", x(difference))
+		// 					.attr("x2", x(difference))
+		// 					.attr("y1", y(0))
+		// 					.attr("y2", y(y_max));
+
+		// diff_line.transition()
+		// 				.duration(600)
+		// 				.attr("x1", x(difference))
+		// 				.attr("x2", x(difference));
+
 }
+
+
+
+var sampleSize = drawSampleSize();
+var difference = drawDifferenceInMeans();
+var effectSize = drawEffectSize(difference, sampleSize);
 
 //remove chart
 function clearEffectSizeChart(){
 	d3.selectAll("#viz3> *").remove();
 };
-
-var sampleSize = drawSampleSize();
-var difference = drawDifferenceInMeans();
-drawEffectSize(difference, sampleSize);

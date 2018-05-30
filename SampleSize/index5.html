@@ -31,7 +31,8 @@
       float: left;
       margin: 0px;
       color: #000000;
-      font: 30px/46px 'Fira Sans';
+      font-family: helvetica;
+      /*font: 30px/46px 'Fira Sans';*/
       font-weight: bold;
     }
 
@@ -42,8 +43,14 @@
     }
 
     body {
-      margin:50px 0;
-      padding:0;
+      margin:100px 0;
+      padding:50px;
+      font-family: helvetica;
+      /*text-align:center;*/
+    }
+
+    h3 {
+      font-family: helvetica;
       /*text-align:center;*/
     }
     .center {
@@ -56,30 +63,30 @@
   </head>
   <body>
     <h1 class="page_full_heading">What is A/B testing (split testing)?</h1>
-    <div class="hero-image"><img class="img-responsive" src="icons/ab-testing-1.jpg" alt="Image"></div>
+    <div class="hero-image"><img class="img-responsive" src="icons/ab-testing-1.jpg" alt="Image" style="width:25%"></div>
+        <h3 class="explain">A/B Testing</h3>
         <p class="explain">
-        </br>
-          Often in digital marketing and product development, changes to digital platforms are made like page or screen design updates. Promotional content is also developed and ran to increase business awareness or performance. It can be extremely difficult to measure the true impact of these design changes or promotional content. With any business there are many factors that contribute business performance making it difficult to isolate the impact of one change or promotion. The confounding factors can include:
-        
-        <ul style="list-style-type:disc" class="explain">
-          <li>Seasonal changes in the business</li>
-          <li>Multiple promotional offers at once</li>
-          <li>Changes in weather patterns, like blizzards that can affect retail store performance</li>
-          <li>Changes in brand perceptions</li>
-        </ul>
+          A/B testing can be used to measure the true impact of user experience/interface changes in digital environments. With any business there are many factors that can contribute to performance, making it difficult to isolate the impact of one change. There are also confounding factors that can effect measurement, including events like seasonal changes, natural disasters, or promotional offers. A/B testing tools are used to serve randomized sets of customers different versions of content, allowing the business to measure the impact that the version differences can have.
       </p>
+      <h3 class="explain">Experimental Design and Statistics</h3>
       <p class="explain">
 
-        The experimental design of an A/B and multivariate test can be a nuanced process as it involves unintuitive statistics. There are different key components that need to be accounted for when running hypothesis tests, including:
+        Having a true experimental design structure for A/B tests is key to ensuring proper measurement. It's also very important to understand the statistics and assumptions associated with different methodologies. Some key components to consider are:
 
         <ul style="list-style-type:disc" class="explain">
-          <li>Metric type, like continuous or discrete.</li>
-          <li>Sample Size </li>
-          <li>Distribution of the metric, including if it meets assumptions of the test.</li>
-          <li>Outliers within the data.</li>
-          <li>Summary statistics like variance of the key metric.</li>
+          <li>Metric type: is it discrete or continuous?</li>
+          <li>Hypothesis test to run: what are the assumptions of the test?</li>
+          <li>Sample Size: how many users need to be exposed to the content to reach statistical significance?</li>
+          <li>Distribution: does the actual distribution of the test results fit with the assumed distribution of the test statistic?</li>
+          <li>Outliers: are there users who are skewing the results of the data?</li>
+        </ul>
 
         </p>
+
+      <h3 class="explain">Example</h3> 
+      <p class="explain">
+        Using an example, imagine you have two variations of a website, Variation A and Variation B. Variation A is what customers are accustomed to seeing when the visit the site and Variation B has changes in the checkout process. We will use an A/B testing tool to randomly serve Variation A to half the population, and Variation B to the other half. We will then use the metric 'Average Revenue Per Visitor' to measure the performance, and a T-Test to test the null hypothesis that there is no difference in Average Revenue Per Visitor between the variations.
+      </p>
       </div>
     <!-- add content -->
     <div class="clearfix">
