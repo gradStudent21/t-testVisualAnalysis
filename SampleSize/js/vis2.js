@@ -217,7 +217,7 @@ function drawSampleSize(){
 			.attr("d", line(poly))
 			.attr("class", "poly");
 
-		// mu lines
+		//THIS IS THE LINE
 		var mu1_line = g.append("line")
 							.attr("id", "mu1")
 							.attr("x1", xScale(para.mu1))
@@ -1085,16 +1085,16 @@ function drawEffectSize(difference, sampleSize){
 		.attr("y", 90)
 		.text("Effect size");
 
-		// ANY OF THE BELOW FUCKS UP THE SLIDER
-		// y_max = d3.max(data.y);
+		// ANY OF THE BELOW WILL MESS UP THE SLIDER
+		//y_max = d3.max(data.y);
 
-		// //causes problems with the lines
-		// var diff_line = svg.append("line")
-		// 					.attr("id", "effect_size")
-		// 					.attr("x1", x(difference))
-		// 					.attr("x2", x(difference))
-		// 					.attr("y1", y(0))
-		// 					.attr("y2", y(y_max));
+		//causes problems with the lines
+		var diff_line = svg.append("line")
+							.attr("id", "mu3")
+							.attr("x1", x(difference))
+							.attr("x2", x(difference))
+							.attr("y1", y(0))
+							.attr("y2", y(y_max));
 
 		// diff_line.transition()
 		// 				.duration(600)

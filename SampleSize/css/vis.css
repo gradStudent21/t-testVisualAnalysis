@@ -38,6 +38,11 @@ line#mu2 {
   stroke: white;
   stroke-dasharray: 2,2;
 }
+line#mu3 {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 2,2;
+}
 line#mu_connect {
     fill: none;
     stroke: black;
