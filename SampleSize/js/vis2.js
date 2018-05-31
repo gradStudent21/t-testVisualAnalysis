@@ -1077,6 +1077,13 @@ function drawEffectSize(difference, sampleSize){
 		    return gaussianConstant * Math.exp(-.5 * x * x) / sigma;
 
 		};
+		
+		svg.append("text")
+		.attr("class", "cohen_float")
+		.attr("text-anchor", "center")
+		.attr("x", 100)
+		.attr("y", 90)
+		.text("Effect size");
 
 		// ANY OF THE BELOW FUCKS UP THE SLIDER
 		// y_max = d3.max(data.y);
