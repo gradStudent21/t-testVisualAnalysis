@@ -1015,7 +1015,8 @@ function drawEffectSize(difference, sampleSize){
 		    .attr("width", width + margin.left + margin.right)
 		    .attr("height", height + margin.top + margin.bottom)
 		    .append("g")
-		    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		    .attr("fill", "effect_size");
 
 		x.domain(d3.extent(data, function(d) {
 		    return d.q;
@@ -1031,7 +1032,7 @@ function drawEffectSize(difference, sampleSize){
 
 		svg.append("path")
 		    .datum(data)
-		    .attr("class", "line")
+		    .attr("class", "effect_size")
 		    .attr("d", line);
 
 		function getData() {
@@ -1078,9 +1079,9 @@ function drawEffectSize(difference, sampleSize){
 		};
 
 		// ANY OF THE BELOW FUCKS UP THE SLIDER
-		// y_max = d3.max(data.y);
+		y_max = d3.max(data.y);
 
-		// // // causes problems with the lines
+		//causes problems with the lines
 		// var diff_line = svg.append("line")
 		// 					.attr("id", "effect_size")
 		// 					.attr("x1", x(difference))

@@ -71,3 +71,8 @@ div#accordion {
    font-family: "museo_slab500";
    font-size:20px;
 }
+
+.effect_size {
+  stroke: #0E6569;
+  fill: #0E6569;
+}
