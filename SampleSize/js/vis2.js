@@ -225,12 +225,12 @@ function drawSampleSize(){
 							.attr("y1", yScale(0))
 							.attr("y2", yScale(y_max));
 
-		// var mu2_line = g.append("line")
-		// 					.attr("id", "mu2")
-		// 					.attr("x1", xScale(para.mu2))
-		// 					.attr("x2", xScale(para.mu2))
-		// 					.attr("y1", yScale(0))
-		// 					.attr("y2", yScale(y_max));
+		var mu2_line = g.append("line")
+							.attr("id", "mu2")
+							.attr("x1", xScale(para.mu2))
+							.attr("x2", xScale(para.mu2))
+							.attr("y1", yScale(0))
+							.attr("y2", yScale(y_max));
 		// marker
 		svg.append("svg:defs").append("marker")
 		    .attr("id", "marker-start")
@@ -1079,9 +1079,9 @@ function drawEffectSize(difference, sampleSize){
 		};
 
 		// ANY OF THE BELOW FUCKS UP THE SLIDER
-		y_max = d3.max(data.y);
+		// y_max = d3.max(data.y);
 
-		//causes problems with the lines
+		// //causes problems with the lines
 		// var diff_line = svg.append("line")
 		// 					.attr("id", "effect_size")
 		// 					.attr("x1", x(difference))
