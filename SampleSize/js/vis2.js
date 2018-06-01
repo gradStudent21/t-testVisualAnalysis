@@ -963,6 +963,7 @@ function drawDifferenceInMeans(){
 							.attr("x2", xScale(para.mu2))
 							.attr("y1", yScale(0))
 							.attr("y2", yScale(y_max));
+
 		mu_connect.attr("x1", xScale(para.mu1))
 							.attr("x2", xScale(para.mu2))
 							.attr("y1", -7)
@@ -1078,32 +1079,24 @@ function drawEffectSize(difference, sampleSize){
 
 		};
 		
+		// effect size font
 		svg.append("text")
-		.attr("class", "cohen_float")
-		.attr("text-anchor", "center")
-		.attr("x", 100)
-		.attr("y", 90)
-		.text("Effect size");
+			.attr("class", "cohen_float")
+			.attr("text-anchor", "center")
+			.attr("x", 100)
+			.attr("y", 90)
+			.text("Effect size");
 
-		// ANY OF THE BELOW WILL MESS UP THE SLIDER
-		//y_max = d3.max(data.y);
+		// causes problems with the lines
+		svg.append("line")
+			.attr("id", "mu3")
+			.attr("x1", x(difference))
+			.attr("x2", x(difference))
+			.attr("y1", y(0));
+			//.attr("y2", y(y_max));
 
-		//causes problems with the lines
-		var diff_line = svg.append("line")
-							.attr("id", "mu3")
-							.attr("x1", x(difference))
-							.attr("x2", x(difference))
-							.attr("y1", y(0))
-							.attr("y2", y(y_max));
-
-		// diff_line.transition()
-		// 				.duration(600)
-		// 				.attr("x1", x(difference))
-		// 				.attr("x2", x(difference));
 
 }
-
-
 
 var sampleSize = drawSampleSize();
 var difference = drawDifferenceInMeans();
